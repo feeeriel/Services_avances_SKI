@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+    stages {
+        stage('GIT') {
+            steps {
+            sshagent(credentials: ['jenkins-ssh-key']) {
+              git url: 'git@github.com:ferielyahyaoui/Services_avances_SKI.git'
+            }
+            }
+        }
+    }
+}
